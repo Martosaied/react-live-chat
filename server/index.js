@@ -1,9 +1,11 @@
-var app = require('express')();
+var express = require('express');
+const app = express()
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var uuid = require('uuid');
 const path = require('path');
 
+app.use(express.static(path.resolve(__dirname, '../web-client/build')));
 app.get('*', function(request, response) {
     response.sendFile(path.resolve(__dirname, '../web-client/build', 'index.html'));
 });
