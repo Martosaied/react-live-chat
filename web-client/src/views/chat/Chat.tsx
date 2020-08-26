@@ -49,6 +49,7 @@ const ChatRoom: React.FC<IProps> = props => {
         
         const [messages, setMessages] = useState<Array<any>>([]);
         const [users, setUsers] = useState<Array<any>>([]);
+        const [islogged, setIslogged] = useState(false);
 
         useEffect(() => {
             const handleUpdateUsers = (users: any) => {
@@ -71,11 +72,14 @@ const ChatRoom: React.FC<IProps> = props => {
         }, [socket])
 
         const addMessage = (text: string) => {
-            socket.emit('ADD_MESSAGE', text)
+            if (islogged) {
+                socket.emit('ADD_MESSAGE', text)
+            }
         }
 
         const addUser = (username: string) => {
             socket.emit('ADD_USER', username)
+            setIslogged(true);
         }
     
 		return (
