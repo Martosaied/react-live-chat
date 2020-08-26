@@ -43,7 +43,7 @@ interface IProps {
 
 const ChatRoom: React.FC<IProps> = props => {
         const PORT = process.env.PORT || 3000;
-        const socket: any = useSocket(`http://127.0.0.1:${PORT}`)
+        const socket: any = useSocket(`https://msaied-chat-example.herokuapp.com/`)
 
         const { classes } = props
         
