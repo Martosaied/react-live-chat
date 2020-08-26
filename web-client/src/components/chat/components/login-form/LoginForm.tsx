@@ -6,7 +6,11 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-export default function FormDialog(props: any) {
+interface IProps {
+    onSubmit: (username: string) => void,
+}
+
+const LoginForm: React.FC<IProps> = props => {
     const [open, setOpen] = useState(true);
     const [username, setUsername] = useState('');
 
@@ -15,7 +19,7 @@ export default function FormDialog(props: any) {
         setOpen(false);
     };
 
-    const onChangeUsernameInput = (event: any) => {
+    const onChangeUsernameInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setUsername(event.target.value)
     }
 
@@ -43,3 +47,5 @@ export default function FormDialog(props: any) {
         </div>
     );
 }
+
+export default LoginForm
