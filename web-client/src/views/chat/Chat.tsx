@@ -42,7 +42,8 @@ interface IProps {
 }
 
 const ChatRoom: React.FC<IProps> = props => {
-        const socket: any = useSocket('http://127.0.0.1:3000')
+        const PORT = process.env.PORT || 3000;
+        const socket: any = useSocket(`http://127.0.0.1:${PORT}`)
 
         const { classes } = props
         
