@@ -3,10 +3,11 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var uuid = require('uuid');
 
-app.get('/', function(req, res){
-	res.send('<h1>Welcome Realtime Server</h1>');
-});
+app.use(express.static(path.resolve(__dirname, '../web-client/build')));
 
+app.get('*', function(request, response) {
+    response.sendFile(path.resolve(__dirname, '../web-client/build', 'index.html'));
+});
 
 let users = [];
 let connnections = [];
