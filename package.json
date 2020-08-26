@@ -7,6 +7,10 @@
     "start": "node server",
     "build": "cd web-client/ && npm install && npm run build"
   },
+  "cacheDirectories": [
+    "node_modules",
+    "web-client/node_modules"
+  ],
   "keywords": [
     "node",
     "heroku",
