@@ -30,7 +30,7 @@ const peopleStyles = createStyles({
 
 interface IProps {
     classes: any,
-    users?: User[],
+    users: User[],
 }
 
 const defaultProps: IProps = {
@@ -40,8 +40,7 @@ const defaultProps: IProps = {
 
 const PeopleList: React.FC<IProps> = props => {
 
-	const classes: any = props.classes
-	const users: User[] = props.users! //TODO: Delete ! operator when props are done
+	const { classes, users } = props
 
 	return (
         <div className={classes.root}>

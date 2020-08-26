@@ -31,13 +31,15 @@ const ChatInput: React.FC<IProps> = props => {
 
         const [text, setText] = useState('')
 
-        const handleTextChange = (event: any) => setText(event.target.value)
-        const handleSendButton = (): any => {
+        const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+            setText(event.target.value)
+        }
+        const handleSendButton = () => {
             setText('')
             props.handleSendButton!(text)
         }
 
-        const handleUserKeyPress = (event: any) => {
+        const handleUserKeyPress = (event: KeyboardEvent) => {
             const { keyCode } = event;
         
             if (keyCode === 13) {
